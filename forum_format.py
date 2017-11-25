@@ -74,7 +74,7 @@ def forum_format(date, hour_start, min_start, sec_start, floor):
     
     for i in range(int(floor)+1):
         standard = fluctuation(time_hour)
-        f.write (u"\u2116".encode("utf-8")+str(floor_number)+u"\u0020\u2606\u2606\u2606=\u0020=\u0020于".encode("utf-8"))
+        f.write (u"\u2116".encode("utf-8")+str(floor_number)+u"\u0020\u2606\u2606\u2606=\u0020=于".encode("utf-8"))
         f.write (str(date_show) + u"\u0020".encode("utf-8"))
         f.write (str(time_hour).zfill(2) + ":" + str(time_min).zfill(2) + ":" + str(time_sec).zfill(2) +u"留言\u2606\u2606\u2606".encode("utf-8"))
         f.write ("\n\n- - - - -\n\n")
@@ -86,11 +86,11 @@ def forum_format(date, hour_start, min_start, sec_start, floor):
             
         time_min = time_min + random.randint(1,int(standard))
         
-        if time_min >= 60:
+        while time_min >= 60:
             time_hour = time_hour + 1
             time_min = time_min - 60
             
-        if time_hour >= 24:
+        while time_hour >= 24:
             time_hour = time_hour - 24
             date_day = int(date_show[8:10]) + 1
             date_show = date_show[0:8]+str(date_day).zfill(2)
