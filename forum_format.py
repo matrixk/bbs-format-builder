@@ -10,7 +10,7 @@ import random
 f = open('forum_format.md', 'w')
 
 def fluctuation(hour_flu):
-    standard = 35
+    standard = 60
     if int(hour_flu) == 0:
         standard = standard / 2.73
     elif int(hour_flu) == 1:
@@ -70,14 +70,14 @@ def forum_format(date, hour_start, min_start, sec_start, floor):
     time_hour = int(hour_start)
     time_min = int(min_start)
     time_sec = int(sec_start)
-    standard = 35
+    standard = 60
     
-    for i in range(int(floor)+1):
+    for i in range(floor_number,int(floor)+1):
         standard = fluctuation(time_hour)
         f.write (u"\u2116".encode("utf-8")+str(floor_number)+u"\u0020\u2606\u2606\u2606=\u0020=于".encode("utf-8"))
         f.write (str(date_show) + u"\u0020".encode("utf-8"))
         f.write (str(time_hour).zfill(2) + ":" + str(time_min).zfill(2) + ":" + str(time_sec).zfill(2) +u"留言\u2606\u2606\u2606".encode("utf-8"))
-        f.write ("\n\n- - - - -\n\n")
+        f.write ("\n\n- - - - -\n\n\n\n")
         floor_number = floor_number + 1
         time_sec = time_sec + random.randint(1,59)
         if time_sec >= 60:
