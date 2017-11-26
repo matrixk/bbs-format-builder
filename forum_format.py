@@ -51,10 +51,10 @@ def forum_format(date, hour_start, min_start, sec_start, floor):
 
 
 
-date_input = "20XX-08-11"#raw_input("date: ")
-time_start = "22:40:03"#raw_input("publish time of the first floor: ")
+date_input = raw_input("date: ")
+time_start = raw_input("publish time of the first floor: ")
 hour_input = time_start[0:2]
 min_input = time_start[3:5]
 sec_input = time_start[6:8]
-floor_input = 200#raw_input("floor: ")
+floor_input = raw_input("floor: ")
 forum_format(date_input, hour_input, min_input, sec_input, floor_input)
