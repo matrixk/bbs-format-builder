@@ -11,61 +11,13 @@ f = open('forum_format.md', 'w')
 
 def fluctuation(hour_flu):
     standard = 60
-    if int(hour_flu) == 0:
-        standard = standard / 2.73
-    elif int(hour_flu) == 1:
-        standard = standard / 1.66
-    elif int(hour_flu) == 2:
-        standard = standard / 1.10
-    elif int(hour_flu) == 3:
-        standard = standard / 0.80
-    elif int(hour_flu) == 4:
-        standard = standard / 0.66
-    elif int(hour_flu) == 5:
-        standard = standard / 0.65
-    elif int(hour_flu) == 6:
-        standard = standard / 0.91
-    elif int(hour_flu) == 7:
-        standard = standard / 1.64
-    elif int(hour_flu) == 8:
-        standard = standard / 3.32
-    elif int(hour_flu) == 9:
-        standard = standard / 4.81
-    elif int(hour_flu) == 10:
-        standard = standard / 5.56
-    elif int(hour_flu) == 11:
-        standard = standard / 5.64
-    elif int(hour_flu) == 12:
-        standard = standard / 5.53
-    elif int(hour_flu) == 13:
-        standard = standard / 5.57
-    elif int(hour_flu) == 14:
-        standard = standard / 5.58
-    elif int(hour_flu) == 15:
-        standard = standard / 6.00
-    elif int(hour_flu) == 16:
-        standard = standard / 6.13
-    elif int(hour_flu) == 17:
-        standard = standard / 5.81
-    elif int(hour_flu) == 18:
-        standard = standard / 5.68
-    elif int(hour_flu) == 19:
-        standard = standard / 6.39
-    elif int(hour_flu) == 20:
-        standard = standard / 6.79
-    elif int(hour_flu) == 21:
-        standard = standard / 6.59
-    elif int(hour_flu) == 22:
-        standard = standard / 5.77
-    elif int(hour_flu) == 23:
-        standard = standard / 4.25
-    else:
-        standard = standard
+    flufluc = [2.73, 1.66, 1.10, 0.80, 0.66, 0.65, 0.91, 1.64, 3.32, 4.81, 5.56, 5.64, 5.53, 5.57, 5.83, 6.00, 6.13, 5.81, 5.68, 6.39, 6.79, 6.59, 5.77, 4.25]
+    standard = standard / flufluc[int(hour_flu)]
     return standard
 
 def forum_format(date, hour_start, min_start, sec_start, floor):
     #set initial
-    floor_number = 0
+    floor_number = 25
     date_show = date
     time_hour = int(hour_start)
     time_min = int(min_start)
@@ -99,10 +51,10 @@ def forum_format(date, hour_start, min_start, sec_start, floor):
 
 
 
-date_input = raw_input("date: ")
-time_start = raw_input("publish time of the first floor: ")
+date_input = "20XX-08-11"#raw_input("date: ")
+time_start = "22:40:03"#raw_input("publish time of the first floor: ")
 hour_input = time_start[0:2]
 min_input = time_start[3:5]
 sec_input = time_start[6:8]
-floor_input = raw_input("floor: ")
+floor_input = 200#raw_input("floor: ")
 forum_format(date_input, hour_input, min_input, sec_input, floor_input)
